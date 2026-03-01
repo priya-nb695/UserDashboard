@@ -23,5 +23,6 @@ body{
     border: none;
 }
 .load-button:hover{
-
+   background-color: blue;
+   cursor: pointer;
 }
