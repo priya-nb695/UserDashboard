@@ -1,45 +1,62 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
 
-<html>
-    <head>
-        <title>User Dashboard</title>
-        <link rel="stylesheet" href="./index.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="heading">User Dashboard</h1>
-            <hr>
+    <div class="container">
 
-            <div class="loader-section">
-                <button class="load-button">Load User</button>
-                <div class="loader">
-                    Loading ...
-                </div>
+        <h1 class="heading">User Dashboard</h1>
+        <hr>
 
-            </div>
-            <hr>
-            <div class="user-info-section">
-                <h2>User Info</h2>
-                <div class="user">
-                    <div class="image">
+        <!-- Loader Section -->
+        <div class="loader-section">
+            <button class="load-button">Load User</button>
 
-                    </div>
-                    <p>User</p>
-                    <p>user@example.com</p>
-
-                </div>
-
-            </div>
-            <hr>
-            <div class="posts-section">
-               <h2>Posts</h2>
-               <div>
-                    <p>Post 1</p>  
-                    <p>Nice post</p>
-                    <p>Loved it</p>
-               </div>
-             
+            <div class="loader">
+                <div class="spinner"></div>
+                <span>Loading...</span>
             </div>
         </div>
-    </body>
+
+        <hr>
+
+        <!-- User Info Section -->
+        <div class="user-info-section">
+            <h2>User Info</h2>
+
+            <div class="user">
+                <div class="image">
+                    <img src="https://i.pravatar.cc/80" alt="User Image">
+                </div>
+
+                <div class="user-details">
+                    <p class="name">Priya</p>
+                    <p class="email">priya@example.com</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Posts Section -->
+        <div class="posts-section">
+            <h2>Posts</h2>
+
+            <div class="post">
+                <h3>Post 1</h3>
+                <ul class="comments">
+                    <li>Nice post!</li>
+                    <li>Loved it</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
 </html>

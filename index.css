@@ -1,46 +1,117 @@
-body{
-    background-color: rgb(231, 243, 249);
-    font-family:monospace,'Courier New', Courier;
+body {
+    background-color: #e7f3f9;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
-.container{
+
+/* Main Card */
+.container {
+    width: 500px;
+    margin: 80px auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+}
+
+/* Heading */
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 20px 0;
+}
+
+/* Loader Section */
+.loader-section {
+    text-align: center;
+}
+
+/* Button */
+.load-button {
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.load-button:hover {
+    background-color: #2563eb;
+}
+
+/* Loader Box */
+.loader {
+    margin-top: 20px;
+    border: 1px solid #e5e5e5;
+    padding: 15px;
+    border-radius: 12px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(179, 176, 176);
-    border-radius: 10px;
-    margin: auto;
-    /* padding: 50px; */
-    width: 350px;
-    margin-top: 100px;
-    background-color: #f4f7f8;
+    gap: 10px;
 }
-.heading,.loader-section,.user-info-section{
-    border-bottom: 1px solid #bdb0b0;
-    width: 100%;
-    text-align: center;
-    padding: 5px 0px;
+
+/* Spinner */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
-.loader{
-    border: 1px solid #d2caca;
-    padding: 10px; 
-    margin: 20px;
-    border-radius: 10px;
-    text-align: center;
+
+/* Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
-.load-button{
-    padding:10px;
-    border-radius: 10px;
-    color: white;
-    background-color: rgb(14, 157, 234);
-    border: none;
+
+/* User Section */
+.user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
-.load-button:hover{
-   background-color: blue;
-   cursor: pointer;
+
+.image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
-.posts-section{
-    width: 100%;
-    text-align: center;
-    padding: 5px 0px;
+
+/* User Details */
+.user-details .name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.user-details .email {
+    margin: 5px 0 0;
+    color: gray;
+    font-size: 14px;
+}
+
+/* Posts */
+.post h3 {
+    margin-bottom: 10px;
+}
+
+.comments {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.comments li {
+    margin-bottom: 5px;
 }
