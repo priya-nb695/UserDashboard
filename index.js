@@ -11,15 +11,16 @@ loadButton.addEventListener("click",()=>{
 })
 
 const getUser = ()=>{
-    const userObj={};
-    setTimeout(()=>{
-        userObj={
+    const  userObj={
             id:1,
             name:"Anu",
             email:"anu@example.com"
         }
+    setTimeout(()=>{
+        const userPosts=getPosts(userObj.id);
+        
     },1000);
-  const userPosts=getPosts(userObj.id);
+ 
 
      
 }
