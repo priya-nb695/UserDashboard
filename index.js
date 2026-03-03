@@ -1,10 +1,11 @@
 let loadButton=document.querySelector(".load-button");
-let spinnerSection=document.querySelector(".loader-section");
+let loader=document.querySelector(".loader");
 let userInfoSection=document.querySelector(".user-info-section");
 let postSection=document.querySelector(".posts-section");
 
 loadButton.addEventListener("click",()=>{
-    spinnerSection.style.display="block";
+    loader.style.display="flex";
+    document.querySelector(".loading-text").innerHTML="Loading..."
     
     
 })
