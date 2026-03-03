@@ -16,35 +16,29 @@ const getUser = ()=>{
             name:"Anu",
             email:"anu@example.com"
         }
-    setTimeout(()=>{
-        const userPosts=getPosts(userObj.id);
-        
-    },1000);
+  
+       const getPosts = (userId)=>{
+            if(userId){
+                    return ({
+                    data:[
+                    {
+                        id:1,
+                        name:"My New Post",
+                    },
+                    {
+                        id:2,
+                        name:"My Second Post",
+                    },
+                ]})
+            }
+            else{
+                return ({message:"User not found"})
+            }
+            
+
+        }
+           
  
-
-     
-}
-
-const getPosts = (userId)=>{
-      if(userId){
-            return ({
-            data:[
-            {
-                id:1,
-                name:"My New Post",
-            },
-            {
-                id:2,
-                name:"My Second Post",
-            },
-        ]})
-      }
-      else{
-        return ({message:"User not found"})
-      }
-     
-
-}
 const getComments = (postId)=>{
     if(postId){
             return ([
@@ -66,3 +60,7 @@ const getComments = (postId)=>{
     
  
 }
+     
+}
+
+
