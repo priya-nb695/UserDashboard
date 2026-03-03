@@ -54,7 +54,8 @@ hr {
     border: 1px solid #e5e5e5;
     padding: 15px;
     border-radius: 12px;
-    display: flex;
+    /* display: flex; */
+    display: none;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -91,6 +92,9 @@ hr {
 }
 
 /* User Details */
+.user-info-section{
+    display: none;
+}
 .user-details .name {
     font-weight: bold;
     margin: 0;
@@ -103,6 +107,9 @@ hr {
 }
 
 /* Posts */
+.posts-section{
+    display: none;
+}
 .post h3 {
     margin-bottom: 10px;
 }
