@@ -10,16 +10,21 @@ loadButton.addEventListener("click",()=>{
     
 })
 
-const getUser = (getposts)=>{
+const getUser = (getPosts)=>{
     const  userObj={
             id:1,
             name:"Anu",
             email:"anu@example.com"
         }
 
-    
-  
-       getPosts(userObj.id,getComments);
+      const fullPostObject= getPosts(userObj.id,getComments);
+      const fullUserObject = {
+        user:userObj,
+        posts:fullPostObject.posts,
+        comments:fullPostObject.comments,
+      }
+
+      return fullUserObject;
     } 
 
  const getPosts = (userId,getComments)=>{
@@ -36,13 +41,21 @@ const getUser = (getposts)=>{
                     },
                     ]
 
-                    getComments(posts[0].id)
+                 const comments = getComments(posts[0].id);
+                 fullPostObject={
+                    posts:posts,
+                    comments:comments
+                 }
+
+                 return fullPostObject;
             }
             else{
                 return ({message:"Post not found"})
             }
 
-        }
+         
+
+ }
 
 const getComments = (postId)=>{
     if(postId){
@@ -63,7 +76,8 @@ const getComments = (postId)=>{
     }
  
 }
-     
+    
+const obj=getUser(getPosts)
 
 
 
