@@ -19,11 +19,14 @@ loadButton.addEventListener("click", () => {
          document.querySelector(".post-title").innerHTML=obj.posts[0].name;
        
     }
-    //   if(obj.posts.length>0){
-    //    const comments=document.querySelector(".comments");
+      if(obj.comments.length>0){
+       const comments=document.querySelectorAll(".comments li");
+       comments.forEach((item ,index)=> {
+            item.innerHTML=obj.comments[index].name;
+       })
         
        
-    // }
+    }
 })
 //need to add error cases n fail cases
 const getUser = (getPosts) => {
