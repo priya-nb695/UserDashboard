@@ -9,9 +9,21 @@ loadButton.addEventListener("click", () => {
     const obj = getUser(getPosts);
     console.log(obj);
 
-    if(Object.entries(obj).length>0){
+    if(Object.entries(obj.user).length>0){
         userInfoSection.style.display='block';
+         document.querySelector(".name").innerHTML=obj.user.name;
+         document.querySelector(".email").innerHTML=obj.user.email;
     }
+     if(obj.posts.length>0){
+        postSection.style.display='block';
+         document.querySelector(".post-title").innerHTML=obj.posts[0].name;
+       
+    }
+    //   if(obj.posts.length>0){
+    //    const comments=document.querySelector(".comments");
+        
+       
+    // }
 })
 //need to add error cases n fail cases
 const getUser = (getPosts) => {
@@ -39,10 +51,10 @@ const getPosts = (userId, getComments) => {
                 id: 1,
                 name: "My New Post",
             },
-            {
-                id: 2,
-                name: "My Second Post",
-            },
+            // {
+            //     id: 2,
+            //     name: "My Second Post",
+            // },
         ]
 
         const comments = getComments(posts[0].id);
