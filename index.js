@@ -5,7 +5,13 @@ let postSection = document.querySelector(".posts-section");
 
 loadButton.addEventListener("click", () => {
     loader.style.display = "flex";
-    document.querySelector(".loading-text").innerHTML = "Loading..."
+    document.querySelector(".loading-text").innerHTML = "Loading...";
+    const obj = getUser(getPosts);
+    console.log(obj);
+
+    if(Object.entries(obj).length>0){
+        userInfoSection.style.display='block';
+    }
 })
 //need to add error cases n fail cases
 const getUser = (getPosts) => {
@@ -72,9 +78,6 @@ const getComments = (postId) => {
     }
 
 }
-
-const obj = getUser(getPosts);
-console.log(obj);
 
 
 
