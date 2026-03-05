@@ -19,13 +19,16 @@ loadButton.addEventListener("click", () => {
          document.querySelector(".post-title").innerHTML=obj.posts[0].name;
        
     }
-      if(obj.comments.length>0){
+    if(obj.comments.length>0){
        const comments=document.querySelectorAll(".comments li");
        comments.forEach((item ,index)=> {
             item.innerHTML=obj.comments[index].name;
        })
-        
-       
+   
+    }
+    if(Object.entries(obj).length>0){
+        let emptySection = document.querySelector(".empty-section");
+        emptySection.style.display='none';
     }
 })
 //need to add error cases n fail cases
