@@ -72,7 +72,7 @@ const getPosts = (userId, getComments) => {
         return fullPostObject;
     }
     else {
-        return ({ message: "Post not found" })
+        return null;
     }
 
 }
@@ -92,7 +92,7 @@ const getComments = (postId) => {
     }
 
     else {
-        return ({ message: "Post not found" })
+        return  null;
     }
 
 }
