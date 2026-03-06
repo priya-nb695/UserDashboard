@@ -97,5 +97,15 @@ const getComments = (postId) => {
 
 }
 
+function getUser1(callback){
+    setTimeout(()=>{
+        const user={
+            id:1,
+            name:"anuu",
+        }
+        callback(user);
+    },1000)
+}
 
+getUser1((user)=>{console.log("the user is",user)})
 
