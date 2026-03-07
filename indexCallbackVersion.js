@@ -51,29 +51,24 @@ loadButton.addEventListener("click", () => {
 
 })
 
-const getUser = () => {
+const getUser = (callback) => {
 
-   return new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-                const user = {
-                id: 1,
-                name: "Anu",
-                email: "anu@example.com"
-        }
-          resolve(user);
-        },1000)
-   }) 
+    setTimeout(()=>{
+        const user = {
+        id: 1,
+        name: "Anu",
+        email: "anu@example.com"
+     }
+     callback(user);
+    },1000)
   
 }
 
 const getPosts = (userId,callback) => {
-   
-   return new Promise((resolve,reject)=>{
-    
-    
-    if(userId){
-     setTimeout(()=>{
-        if(userId){     const posts = [
+    if (userId) {
+
+        setTimeout(()=>{
+         const posts = [
             {
                 id: 1,
                 name: "My New Post",
@@ -83,25 +78,18 @@ const getPosts = (userId,callback) => {
                 name: "My Second Post",
             },
           ]
-          resolve(posts);
-        }
-        },1000);
-    }
-    else{
-        reject("User id not found")
-    }
-        
-            
+          callback(posts);
+        },1000)
    
-     }
-     
-  
-   )}
+    }
+    else {
+        return null;
+    }
 
-    
+}
+
+
 const getComments = (postId,callback) => {
-  return new Promise((resolve,reject)=>{
-
     if (postId) {
         setTimeout(()=>{
             const comments= [
@@ -114,15 +102,14 @@ const getComments = (postId,callback) => {
                 name: "Stunning Pic",
             }
         ]
-       resolve(comments);
+        callback(comments);
         },1000)
         
     }
 
-     else {
-       reject("Post Id not found");
-     }
-  })  
+    else {
+        return  null;
+    }
 
 }
 
