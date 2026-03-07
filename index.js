@@ -7,15 +7,13 @@ let loaderSection = document.querySelector(".loader-section");
 loadButton.addEventListener("click", () => {
     loader.style.display = "flex";
     document.querySelector(".loading-text").innerHTML = "Loading...";
-    // const obj = getUser(getPosts);
-    getUser((user)=>{
-    console.log("the user",user);
-    getPosts(user.id,(posts)=>{
-        console.log("the posts",posts);
-        getComments(posts[0].id,(comments)=>{
-            console.log("the comments",comments);
 
-            
+    getUser((user)=>{
+
+    getPosts(user.id,(posts)=>{
+
+        getComments(posts[0].id,(comments)=>{
+         
                 const obj = {
                     user: user,
                     posts: posts,
@@ -35,8 +33,8 @@ loadButton.addEventListener("click", () => {
                 }
 
                 if(obj.comments.length>0){
-                const comments=document.querySelectorAll(".comments li");
-                comments.forEach((item ,index)=> {
+                const commentsItem=document.querySelectorAll(".comments li");
+                commentsItem.forEach((item ,index)=> {
                         item.innerHTML=obj.comments[index].name;
                 })
                 }
@@ -44,7 +42,7 @@ loadButton.addEventListener("click", () => {
                 if(Object.entries(obj).length>0){
                     let emptySection = document.querySelector(".empty-section");
                     emptySection.style.display='none';
-                    loaderSection.style.display = "none";
+                    loader.style.display = "none";
                 }
       
             })
@@ -115,5 +113,4 @@ const getComments = (postId,callback) => {
 
 }
 
-//callback is passed as params to another function
 
