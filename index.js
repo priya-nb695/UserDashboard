@@ -8,55 +8,45 @@ loadButton.addEventListener("click", () => {
     loader.style.display = "flex";
     document.querySelector(".loading-text").innerHTML = "Loading...";
 
-    // getUser((user) => {
-
-    //     getPosts(user.id, (posts) => {
-
-    //         getComments(posts[0].id, (comments) => {
-
-    //             const obj = {
-    //                 user: user,
-    //                 posts: posts,
-    //                 comments: comments,
-    //             }
-
-    //             if (Object.entries(obj.user).length > 0) {
-    //                 userInfoSection.style.display = 'block';
-    //                 document.querySelector(".name").innerHTML = obj.user.name;
-    //                 document.querySelector(".email").innerHTML = obj.user.email;
-    //             }
-
-    //             if (obj.posts.length > 0) {
-    //                 postSection.style.display = 'block';
-    //                 document.querySelector(".post-title").innerHTML = obj.posts[0].name;
-
-    //             }
-
-    //             if (obj.comments.length > 0) {
-    //                 const commentsItem = document.querySelectorAll(".comments li");
-    //                 commentsItem.forEach((item, index) => {
-    //                     item.innerHTML = obj.comments[index].name;
-    //                 })
-    //             }
-
-    //             if (Object.entries(obj).length > 0) {
-    //                 let emptySection = document.querySelector(".empty-section");
-    //                 emptySection.style.display = 'none';
-    //                 loader.style.display = "none";
-    //             }
-
-    //         })
-    //     })
-    // })
     getUser()
     .then((user)=>{
-        console.log("the result",user);
+
         getPosts(user.id)
          .then((posts)=>{
-          console.log("the result",posts);
+            
           getComments(posts[0].id)
          .then((comments)=>{
-            console.log("the result",comments);
+
+             const obj = {
+                    user: user,
+                    posts: posts,
+                    comments: comments,
+                }
+
+                if (Object.entries(obj.user).length > 0) {
+                    userInfoSection.style.display = 'block';
+                    document.querySelector(".name").innerHTML = obj.user.name;
+                    document.querySelector(".email").innerHTML = obj.user.email;
+                }
+
+                if (obj.posts.length > 0) {
+                    postSection.style.display = 'block';
+                    document.querySelector(".post-title").innerHTML = obj.posts[0].name;
+
+                }
+
+                if (obj.comments.length > 0) {
+                    const commentsItem = document.querySelectorAll(".comments li");
+                    commentsItem.forEach((item, index) => {
+                        item.innerHTML = obj.comments[index].name;
+                    })
+                }
+
+                if (Object.entries(obj).length > 0) {
+                    let emptySection = document.querySelector(".empty-section");
+                    emptySection.style.display = 'none';
+                    loader.style.display = "none";
+                }
          })
        })
     })
