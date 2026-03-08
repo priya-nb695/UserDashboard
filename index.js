@@ -7,51 +7,54 @@ let loaderSection = document.querySelector(".loader-section");
 loadButton.addEventListener("click", () => {
     loader.style.display = "flex";
     document.querySelector(".loading-text").innerHTML = "Loading...";
-
+   let fullObj={}
     getUser()
-    .then((user)=>{
+    .then((user)=> {
+        fullObj={
+            ...fullObj,
+            user
+        }
+        return  getPosts(user.id)
+    })
+    .then((posts)=> {
+        fullObj={
+            ...fullObj,
+            posts
+        }
+       return  getComments(posts[0].id)
+    })
+    .then((comments)=>{
+        fullObj={
+            ...fullObj,
+           comments
+        }
 
-        getPosts(user.id)
-         .then((posts)=>{
-            
-          getComments(posts[0].id)
-         .then((comments)=>{
-
-             const obj = {
-                    user: user,
-                    posts: posts,
-                    comments: comments,
-                }
-
-                if (Object.entries(obj.user).length > 0) {
+                if (Object.entries(fullObj.user).length > 0) {
                     userInfoSection.style.display = 'block';
-                    document.querySelector(".name").innerHTML = obj.user.name;
-                    document.querySelector(".email").innerHTML = obj.user.email;
+                    document.querySelector(".name").innerHTML = fullObj.user.name;
+                    document.querySelector(".email").innerHTML = fullObj.user.email;
                 }
 
-                if (obj.posts.length > 0) {
+                if (fullObj.posts.length > 0) {
                     postSection.style.display = 'block';
-                    document.querySelector(".post-title").innerHTML = obj.posts[0].name;
+                    document.querySelector(".post-title").innerHTML = fullObj.posts[0].name;
 
                 }
 
-                if (obj.comments.length > 0) {
+                if (fullObj.comments.length > 0) {
                     const commentsItem = document.querySelectorAll(".comments li");
                     commentsItem.forEach((item, index) => {
-                        item.innerHTML = obj.comments[index].name;
+                        item.innerHTML = fullObj.comments[index].name;
                     })
                 }
 
-                if (Object.entries(obj).length > 0) {
+                if (Object.entries(fullObj).length > 0) {
                     let emptySection = document.querySelector(".empty-section");
                     emptySection.style.display = 'none';
                     loader.style.display = "none";
                 }
          })
-       })
-    })
    
-
 })
 
 const getUser = () => {
@@ -99,7 +102,7 @@ const getPosts = (userId) => {
     )
 }
 
-const getComments = (postId, callback) => {
+const getComments = (postId) => {
     return new Promise((resolve, reject) => {
 
         if (postId) {
