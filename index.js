@@ -51,12 +51,13 @@ const getUser = () => {
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const user = {
-                id: 1,
-                name: "Anu",
-                email: "anu@example.com"
-            }
-            resolve(user);
+            resolve( 
+                {
+                    id: 1,
+                    name: "Anu",
+                    email: "anu@example.com"
+                }
+            );
         }, 1000)
     })
 
@@ -69,17 +70,12 @@ const getPosts = (userId) => {
         if (userId) {
             setTimeout(() => {
                 
-                    const posts = [
-                        {
-                            id: 1,
-                            name: "My New Post",
-                        },
-                        {
-                            id: 2,
-                            name: "My Second Post",
-                        },
-                    ]
-                    resolve(posts);
+                    resolve(
+                      [
+                        { id: 1, name: "My New Post"},
+                        { id: 2,name: "My Second Post"}
+                      ]
+                   );
                
             }, 1000);
         }
@@ -97,17 +93,12 @@ const getComments = (postId) => {
 
         if (postId) {
             setTimeout(() => {
-                const comments = [
-                    {
-                        id: 1,
-                        name: "Amazing Post",
-                    },
-                    {
-                        id: 2,
-                        name: "Stunning Pic",
-                    }
+              resolve (
+                [ 
+                   { id: 1,name: "Amazing Post"},
+                   { id: 2, name: "Stunning Pic"}
                 ]
-                resolve(comments);
+             );
             }, 1000)
 
         }
