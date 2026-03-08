@@ -48,56 +48,75 @@ loadButton.addEventListener("click", async () => {
 })
 
 const getUser = () => {
-  
-    return  ({
-        id: 1,
-        name: "Anu",
-        email: "anu@example.com"
-     })
-      
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const user = {
+                id: 1,
+                name: "Anu",
+                email: "anu@example.com"
+            }
+            resolve(user);
+        }, 1000)
+    })
+
 }
 
 const getPosts = (userId) => {
-    if (userId) {
 
-         return ([
-            {
-                id: 1,
-                name: "My New Post",
-            },
-            {
-                id: 2,
-                name: "My Second Post",
-            },
-          ])
-    
-    }
-    else {
-        return null;
+    return new Promise((resolve, reject) => {
+
+        if (userId) {
+            setTimeout(() => {
+                
+                    const posts = [
+                        {
+                            id: 1,
+                            name: "My New Post",
+                        },
+                        {
+                            id: 2,
+                            name: "My Second Post",
+                        },
+                    ]
+                    resolve(posts);
+               
+            }, 1000);
+        }
+        else {
+            reject("User id not found")
+        }
+
     }
 
+    )
 }
 
-
 const getComments = (postId) => {
-    if (postId) {
-  
-           return ( [
-            {
-                id: 1,
-                name: "Amazing Post",
-            },
-            {
-                id: 2,
-                name: "Stunning Pic",
-            }
-        ])
-        
-    }
+    return new Promise((resolve, reject) => {
 
-    else {
-        return  null;
-    }
+        if (postId) {
+            setTimeout(() => {
+                const comments = [
+                    {
+                        id: 1,
+                        name: "Amazing Post",
+                    },
+                    {
+                        id: 2,
+                        name: "Stunning Pic",
+                    }
+                ]
+                resolve(comments);
+            }, 1000)
+
+        }
+
+        else {
+            reject("Post Id not found");
+        }
+
+    })
 
 }
 
