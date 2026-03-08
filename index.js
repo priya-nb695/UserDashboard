@@ -7,27 +7,18 @@ let loaderSection = document.querySelector(".loader-section");
 loadButton.addEventListener("click", () => {
     loader.style.display = "flex";
     document.querySelector(".loading-text").innerHTML = "Loading...";
-   let fullObj={}
+    const fullObj={};
     getUser()
     .then((user)=> {
-        fullObj={
-            ...fullObj,
-            user
-        }
+        fullObj.user = user;
         return  getPosts(user.id)
     })
     .then((posts)=> {
-        fullObj={
-            ...fullObj,
-            posts
-        }
+        fullObj.posts = posts;
        return  getComments(posts[0].id)
     })
     .then((comments)=>{
-        fullObj={
-            ...fullObj,
-           comments
-        }
+        fullObj.comments = comments;
 
                 if (Object.entries(fullObj.user).length > 0) {
                     userInfoSection.style.display = 'block';
